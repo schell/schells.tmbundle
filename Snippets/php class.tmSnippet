@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>&lt;?php
+/**
+ *	$TM_FILENAME
+ *	${1:desc}
+ *	Copyright (c) ${TM_YEAR} ${TM_ORGANIZATION_NAME}. All rights reserved.
+ *
+ *	@author	Schell Scivally
+ *	@since	`date`
+ */
+class ${2:DerivedClass} ${3:extends ${4:BaseClass}}
+{
+	doc$0
+}</string>
+	<key>name</key>
+	<string>php class</string>
+	<key>scope</key>
+	<string>source.php, text.html</string>
+	<key>tabTrigger</key>
+	<string>class</string>
+	<key>uuid</key>
+	<string>1A192CE6-CEF4-4CE8-B683-0EAF22273B3C</string>
+</dict>
+</plist>

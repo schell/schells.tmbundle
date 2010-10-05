@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby
+
+base = ENV['TM_PROJECT_DIRECTORY']
+dir	= ENV['TM_DIRECTORY']
+file = ENV['TM_FILENAME']
+
+puts base + "&lt;br /&gt;"
+puts dir + "&lt;br /&gt;"
+puts file + "&lt;br /&gt;"
+
+puts dir.sub(base, 'base') + "&lt;br /&gt;"
+
+puts "#{ENV['TM_SUPPORT_PATH']}/lib/ui &lt;br /&gt;"
+puts "#{ENV['TM_SUPPORT_PATH']}/nibs/RequestString.nib &lt;br /&gt;"
+require "#{ENV['TM_SUPPORT_PATH']}/lib/ui"
+nib = "#{ENV['TM_SUPPORT_PATH']}/nibs/RequestString.nib"
+fileToTail = ""
+TextMate::UI.dialog(:nib =&gt; nib, :parameters =&gt; {}, :center =&gt; true) do
+|dialog|
+	dialog.parameters = {'string' =&gt; "~/Library/Preferences/Macromedia/Flash\ Player/Logs/flashlog.txt", 'title' =&gt; "Command needs input.", 'prompt' =&gt; "Please enter the path of the file to tail: [default flashlog.txt]"}
+	fileToTail = dialog.wait_for_input
+end
+puts fileToTail["returnArgument"]</string>
+	<key>input</key>
+	<string>document</string>
+	<key>name</key>
+	<string>helper</string>
+	<key>output</key>
+	<string>showAsHTML</string>
+	<key>uuid</key>
+	<string>C6B3EB1A-F1D9-44F7-8900-115F5511FAFD</string>
+</dict>
+</plist>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>if("@${1:tag}" in fromXML)
+	toXML.@${1:tag} = fromXML.@${1:tag};</string>
+	<key>name</key>
+	<string>tag</string>
+	<key>scope</key>
+	<string>source.actionscript.3</string>
+	<key>tabTrigger</key>
+	<string>tag</string>
+	<key>uuid</key>
+	<string>E7691E77-1A27-4434-ADC6-DCE318E6EB00</string>
+</dict>
+</plist>

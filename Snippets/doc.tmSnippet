@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>/**
+ *	${1:desc}
+ *${2:
+ *	@param  ${3:param} ${4:desc}}${5:
+ *	@return ${6:type} ${7:desc}}${8:
+ *	@author Schell Scivally}
+ *	@since  `date`
+ */$0</string>
+	<key>name</key>
+	<string>php doc</string>
+	<key>scope</key>
+	<string>source.php, source.actionscript.3, source.js, source.c++,source.objc, source.objc++</string>
+	<key>tabTrigger</key>
+	<string>doc</string>
+	<key>uuid</key>
+	<string>3AE753DA-59D4-47CA-B3E3-D667153B4E8B</string>
+</dict>
+</plist>

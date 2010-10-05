@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>PROMPT_CMD="$TM_BUNDLE_SUPPORT/bin/get_string_prompt.rb";
+export SYSTEM_FONT_NAME=`ruby "$PROMPT_CMD" "Which System Font to compile?" "Enter the name of the System Font to compile:" "Arial"`;
+if [[ $SYSTEM_FONT_NAME == "nil" ]]
+then 
+	echo "Compilation cancelled.";
+	exit;
+fi
+
+export NEW_FONT_NAME=`ruby "$PROMPT_CMD" "Enter a new font name" "To avoid conflict we need new name:" "_Arial"`;
+if [[ $NEW_FONT_NAME == "nil" ]]
+then 
+	echo "Compilation cancelled.";
+	exit;
+fi
+
+export FONT_STYLE=`ruby "$PROMPT_CMD" "Enter the font style" "Ex. italic, oblique:" "normal"`;
+if [[ $FONT_STYLE == "nil" ]]
+then 
+	echo "Compilation cancelled.";
+	exit;
+fi
+
+export FONT_WEIGHT=`ruby "$PROMPT_CMD" "Enter the font weight" "Ex. bold:" "normal"`;
+if [[ $FONT_WEIGHT == "nil" ]]
+then 
+	echo "Compilation cancelled.";
+	exit;
+fi
+
+RANGE=`ruby "$PROMPT_CMD" "Enter the unicode range to embed" "Ex. U+0061-U+007A, U+0041-U+005A:" "all"`;
+if [[ $RANGE == "nil" ]]
+then 
+	echo "Compilation cancelled.";
+	exit;
+fi
+
+if [[ "$RANGE" == "all" ]]
+then
+	RANGE_OUTPUT="the entire character set of";
+	export UNICODE_RANGE="";
+else
+	RANGE_OUTPUT="$RANGE of";
+	export UNICODE_RANGE="unicodeRange=\"${RANGE}\",";
+fi
+
+# get the place to save the swf
+export SWF_FULL_PATH=$(CocoaDialog filesave \
+			--text "Please name the swf and choose a place to save it." \
+			--title "Save compiled swf" \
+			--with-file "FontCompiler$NEW_FONT_NAME.swf");
+
+SWF_DIR=`dirname $SWF_FULL_PATH`;
+SWF_NAME=`basename $SWF_FULL_PATH`;
+ENTRY_AS="FontCompiler$NEW_FONT_NAME.as"
+CONFIG_XML="FontCompiler$NEW_FONT_NAME.xml"
+
+cd $SWF_DIR;
+
+echo "Compiling $RANGE_OUTPUT $SYSTEM_FONT_NAME to $SWF_NAME.&lt;br /&gt;";
+echo "Use $NEW_FONT_NAME in your TextFormats, etc.&lt;br /&gt;";
+
+# create a file for us to read into
+# take our variables and parse the FontCompiler.as and the flex config file
+perl -pe 's/\$\{([^}]*)\}/$ENV{$1}/g' \
+      &lt; "$TM_BUNDLE_SUPPORT/bin/FontCompiler.as" &gt; "$ENTRY_AS";
+perl -pe 's/\$\{([^}]*)\}/$ENV{$1}/g' \
+      &lt; "$TM_BUNDLE_SUPPORT/bin/FontCompiler_flexconfig.xml" &gt; "$CONFIG_XML";
+
+echo "mxmlc output:&lt;br /&gt;";
+eval "$TM_FLEX_PATH/bin/mxmlc -load-config $TM_FLEX_PATH/frameworks/flex-config.xml -load-config $SWF_DIR/$CONFIG_XML -o=$SWF_FULL_PATH -file-specs=$SWF_DIR/$ENTRY_AS"
+
+rm $ENTRY_AS $CONFIG_XML FontCompiler$NEW_FONT_NAME.swf.cache;
+
+echo "&lt;br /&gt;done!&lt;br /&gt;";</string>
+	<key>input</key>
+	<string>selection</string>
+	<key>keyEquivalent</key>
+	<string>^~@c</string>
+	<key>name</key>
+	<string>New Compiled Font SWF</string>
+	<key>output</key>
+	<string>showAsHTML</string>
+	<key>uuid</key>
+	<string>0C1B2C33-23D2-4953-9156-43DD2F5338E6</string>
+</dict>
+</plist>

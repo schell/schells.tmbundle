@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string># just to remind you of some useful environment variables
+# see Help / Environment Variables for the full list
+export DIR=`dirname "$TM_FILEPATH"`
+export FILE=`basename "$TM_FILEPATH"`
+export COMMAND="sbcl --script $FILE"
+export COMMAND="cd $DIR;$COMMAND"
+osascript -e "
+	tell application \"System Events\"
+		if exists process \"Terminal\" then
+		else
+			tell application \"Terminal\" to run
+		end if	
+		try
+			tell application \"Terminal\" to close front window
+		end try
+		tell application \"Terminal\" to do script with command \"$COMMAND\"
+		set frontmost of process \"Terminal\" to true
+	end tell"
+
+</string>
+	<key>input</key>
+	<string>selection</string>
+	<key>keyEquivalent</key>
+	<string>@r</string>
+	<key>name</key>
+	<string>run in sbcl</string>
+	<key>output</key>
+	<string>discard</string>
+	<key>scope</key>
+	<string>source.lisp</string>
+	<key>uuid</key>
+	<string>C8469B3C-8E43-4979-8D21-B9BA2941EF4F</string>
+</dict>
+</plist>

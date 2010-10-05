@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>/** * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ *	$TM_FILENAME
+ *	${1:desc}
+ *	Copyright (c) `date "+%Y"` ${2:${TM_ORGANIZATION_NAME}}. All rights reserved.
+ *
+ *	@author	Schell Scivally
+ *	@since	`date`
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * **/</string>
+	<key>name</key>
+	<string>sse copyright</string>
+	<key>tabTrigger</key>
+	<string>ssec</string>
+	<key>uuid</key>
+	<string>9371787F-7B82-4F6A-A152-42850D3678D9</string>
+</dict>
+</plist>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>autoScrollOutput</key>
+	<true/>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>DEFAULT_TITLE="Command needs input."
+DEFAULT_FLASHLOG="~/Library/Preferences/Macromedia/Flash\\ Player/Logs/flashlog.txt"
+DEFAULT_FLASHLOG_PROMPT="Please enter the path of the file to tail: [default flashlog.txt]"
+DEFAULT_CSS="file://$TM_PROJECT_DIRECTORY/src/trace.css"
+DEFAULT_CSS_PROMPT="Please enter the path to a css file to use for html tracing: [default trace.css]"
+
+TAIL_FILE=`ruby "$TM_BUNDLE_SUPPORT/bin/get_string_prompt.rb" "$DEFAULT_TITLE" "$DEFAULT_FLASHLOG_PROMPT" "$DEFAULT_FLASHLOG"`
+CSS_FILE=`ruby "$TM_BUNDLE_SUPPORT/bin/get_string_prompt.rb" "$DEFAULT_TITLE" "$DEFAULT_CSS_PROMPT" "$DEFAULT_CSS"`
+
+# use this as a filter (| div) when you want 
+# raw output to show as such in the HTML output
+# while still parsing HTML tags
+# s/&lt;/&amp;lt;/g; s/&gt;/&amp;gt;/g; s/$\\n/&lt;br&gt;/g; s/$\\n/&lt;br&gt;/g;
+
+div () {
+	echo -n '&lt;pre&gt;'
+	perl -pe '$| = 1; s/&amp;/&amp;amp;/g;'
+	echo '&lt;/pre&gt;'
+}
+
+# give it some style
+echo '&lt;link rel="stylesheet" type="text/css" media="screen" href="'
+echo $CSS_FILE
+echo '"&gt;'
+
+eval tail -f "$TAIL_FILE" | div</string>
+	<key>input</key>
+	<string>none</string>
+	<key>name</key>
+	<string>Monitor flashlog.txt</string>
+	<key>output</key>
+	<string>showAsHTML</string>
+	<key>uuid</key>
+	<string>556CF812-A992-489F-9BAC-3AE42E2FC196</string>
+</dict>
+</plist>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>addEvent('${1:domready}', function (e) {
+	$2
+});</string>
+	<key>name</key>
+	<string>moo addEvent</string>
+	<key>scope</key>
+	<string>source.js</string>
+	<key>tabTrigger</key>
+	<string>addEvent</string>
+	<key>uuid</key>
+	<string>35AF7391-F2D9-4C11-85E2-014F51749526</string>
+</dict>
+</plist>

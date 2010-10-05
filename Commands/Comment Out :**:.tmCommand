@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/bin/bash
+
+#-------------------------------------------------------------------------
+# Make comment / Undo comment
+# by Schell Scivally
+# @ efnx.com
+#-------------------------------------------------------------------------
+if [ "$TM_SELECTED_TEXT" == '' ]
+	then
+	echo -n "/**
+$TM_CURRENT_LINE *
+$TM_CURRENT_LINE */"
+	exit 0
+fi
+
+opening=`echo "$TM_SELECTED_TEXT" | awk 'BEGIN {nlines=0} /\/\*/ {nlines++} END {print nlines}'`
+if [ "$opening" == 0 ]
+    then
+        echo -n "/*$TM_SELECTED_TEXT*/"
+    else
+        output=`echo "$TM_SELECTED_TEXT" | sed 's/\*\///g' | sed 's/\/\*//g'`
+        echo -n "$output"
+fi</string>
+	<key>fallbackInput</key>
+	<string>word</string>
+	<key>input</key>
+	<string>selection</string>
+	<key>keyEquivalent</key>
+	<string>@/</string>
+	<key>name</key>
+	<string>Comment Out /**/</string>
+	<key>output</key>
+	<string>replaceSelectedText</string>
+	<key>scope</key>
+	<string>source.php,source.actionscript.3,source.c, source.c++, source.objc, source.objc++, source.java, source.js</string>
+	<key>uuid</key>
+	<string>3BCAA1C0-E6B7-4BA5-8ABA-8AE2159CDC65</string>
+</dict>
+</plist>

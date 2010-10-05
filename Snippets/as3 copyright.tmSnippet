@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>////////////////////////////////////////////////////////////////////////////////
+// Copyleft 
+//  |      _| |    |   
+//    \    _|  _|    \ 
+// _| _| _|  \__| _| _| 
+// All rights reversed
+// Written by Schell Scivally (efnx.com, happyfuntimehacking.com)
+// `date` 
+////////////////////////////////////////////////////////////////////////////////</string>
+	<key>name</key>
+	<string>hfth</string>
+	<key>tabTrigger</key>
+	<string>hfth</string>
+	<key>uuid</key>
+	<string>D746D66A-4829-48FB-A02A-D9F6F0B6F0B0</string>
+</dict>
+</plist>

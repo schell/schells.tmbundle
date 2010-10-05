@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>saveModifiedFiles</string>
+	<key>command</key>
+	<string>echo '&lt;xmp&gt;'
+
+echo `expr index "$TM_SELECTED_FILES" C12`
+
+#nameString=$(CocoaDialog inputbox \
+#			--title "Enter a name for the tar.gz archive..." \
+#			--text "[blank to cancel]" \
+#			--button1 "Ok.");
+
+#if [ "$nameString" == "" ]
+#then
+#	echo "Process cancelled.";
+#else
+#	nameString=${nameString:2}
+	#`tar -cvzf $nameString $TM_SELECTED_FILES`;
+#	mv $nameString ~/Desktop;
+#	echo "$nameString has been moved to the desktop.";
+#fi
+
+echo '&lt;/xmp&gt;'</string>
+	<key>input</key>
+	<string>none</string>
+	<key>name</key>
+	<string>Tar.gz Selected Files</string>
+	<key>output</key>
+	<string>showAsHTML</string>
+	<key>uuid</key>
+	<string>6E3CA9FB-7ED5-4961-AFEC-68D958B26554</string>
+</dict>
+</plist>

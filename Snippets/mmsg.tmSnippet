@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>Babl_Messenger_Bag::addMessage(new Babl_Messenger_Message(${1:'message'}, ${2:'body'}));</string>
+	<key>name</key>
+	<string>mmsg</string>
+	<key>scope</key>
+	<string>source.php</string>
+	<key>tabTrigger</key>
+	<string>mmsg</string>
+	<key>uuid</key>
+	<string>6E472FFF-865F-450F-AEF5-E4F19B38A3C9</string>
+</dict>
+</plist>

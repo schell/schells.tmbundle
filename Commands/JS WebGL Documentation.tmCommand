@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>if [[ "$TM_SELECTED_TEXT" == "" ]]
+then
+	SEARCH="$TM_CURRENT_WORD"
+else
+	SEARCH="$TM_SELECTED_TEXT"
+fi
+
+WORD="${SEARCH}"
+
+if [[ $SEARCH =~ ([a-z])(.*) ]]
+then
+	SEARCH="http://www.khronos.org/opengles/sdk/docs/man/xhtml/"
+	SEARCH="${SEARCH}gl"
+	UPPER=`echo "${BASH_REMATCH[1]}" | tr [a-z] [A-Z]`
+	SEARCH="${SEARCH}${UPPER}"
+	SEARCH="${SEARCH}${BASH_REMATCH[2]}"
+	SEARCH="${SEARCH}.xml"
+fi
+
+open $SEARCH</string>
+	<key>input</key>
+	<string>selection</string>
+	<key>keyEquivalent</key>
+	<string>^h</string>
+	<key>name</key>
+	<string>JS WebGL Documentation</string>
+	<key>output</key>
+	<string>showAsHTML</string>
+	<key>scope</key>
+	<string>source.js</string>
+	<key>uuid</key>
+	<string>C554D194-701A-4AF6-8BE5-781EE2874283</string>
+</dict>
+</plist>

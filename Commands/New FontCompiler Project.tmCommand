@@ -73,8 +73,15 @@ perl -pe 's/\$\{([^}]*)\}/$ENV{$1}/g' \
 perl -pe 's/\$\{([^}]*)\}/$ENV{$1}/g' \
       &lt; "$TM_BUNDLE_SUPPORT/bin/FontCompiler_flexconfig.xml" &gt; "$CONFIG_XML";
 
-echo "mxmlc output:&lt;br /&gt;";
-eval "$TM_FLEX_PATH/bin/mxmlc -load-config $TM_FLEX_PATH/frameworks/flex-config.xml -load-config $SWF_DIR/$CONFIG_XML -o=$SWF_FULL_PATH -file-specs=$SWF_DIR/$ENTRY_AS"
+if [[ "$TM_FLEX_PATH" == "" ]]
+then
+	COMMAND="mxmlc"
+else
+	COMMAND="$TM_FLEX_PATH/bin/mxmlc"
+fi
+
+echo "$COMMAND output:&lt;br /&gt;";
+eval "$COMMAND -load-config $TM_FLEX_PATH/frameworks/flex-config.xml -load-config $SWF_DIR/$CONFIG_XML -o=$SWF_FULL_PATH -file-specs=$SWF_DIR/$ENTRY_AS"
 
 rm $ENTRY_AS $CONFIG_XML FontCompiler$NEW_FONT_NAME.swf.cache;
 

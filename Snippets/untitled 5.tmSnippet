@@ -3,16 +3,19 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>//HACK
-$0
-///HACK</string>
+	<string>/**
+ *	${1:description}
+ *
+ *	@var ${2:datatype}
+ */
+protected static const ${3:name}:$2 = ${4:0};</string>
 	<key>name</key>
-	<string>HACK</string>
+	<string>protected static const</string>
 	<key>scope</key>
 	<string>source.actionscript.3</string>
 	<key>tabTrigger</key>
-	<string>hack</string>
+	<string>prosc</string>
 	<key>uuid</key>
-	<string>39776750-A1B1-40FE-BCF4-0D95D9A05A82</string>
+	<string>C343B756-9CF3-42EA-B0D1-4A1C25E36A06</string>
 </dict>
 </plist>

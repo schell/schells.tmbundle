@@ -3,16 +3,19 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>//HACK
-$0
-///HACK</string>
+	<string>/**
+ *	${1:description}
+ *
+ *	@var ${2:datatype}
+ */
+public var _${3:name}:$2 = ${4:${5:new} $2()};</string>
 	<key>name</key>
-	<string>HACK</string>
+	<string>public var</string>
 	<key>scope</key>
 	<string>source.actionscript.3</string>
 	<key>tabTrigger</key>
-	<string>hack</string>
+	<string>puv</string>
 	<key>uuid</key>
-	<string>39776750-A1B1-40FE-BCF4-0D95D9A05A82</string>
+	<string>C8D9755D-B1D5-4BCC-8400-89D1B34C7173</string>
 </dict>
 </plist>

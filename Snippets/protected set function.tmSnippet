@@ -3,16 +3,23 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>//HACK
-$0
-///HACK</string>
+	<string>/**
+ *	${1:desc}
+ *
+ *	@param ${2:type} ${3:desc}
+ *	@author $TM_FULLNAME
+ *	@since  `date`
+ */
+protected function set ${4:name}(${5:val}:$2):void {
+	$0
+}</string>
 	<key>name</key>
-	<string>HACK</string>
+	<string>protected set function</string>
 	<key>scope</key>
 	<string>source.actionscript.3</string>
 	<key>tabTrigger</key>
-	<string>hack</string>
+	<string>pros</string>
 	<key>uuid</key>
-	<string>39776750-A1B1-40FE-BCF4-0D95D9A05A82</string>
+	<string>26228672-FDCD-4E5E-ABA4-A9FBCC75900C</string>
 </dict>
 </plist>

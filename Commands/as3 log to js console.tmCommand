@@ -39,10 +39,9 @@ end
 print '//CONSOLE_LOG (console.log|warn|error)
 import flash.external.ExternalInterface;
 if(ExternalInterface.available) {
-	ExternalInterface.call(\'console.${1:log}\', \'' + class_name + '::' + method_name + '()\'${2/.+/ + /}$2);
+	ExternalInterface.call(\'console.${1:log}\', \'' + class_name + '::' + method_name + '()\'${2/.+/, /}$2);
 }
-///CONSOLE_LOG
-$0'</string>
+///CONSOLE_LOG'</string>
 	<key>input</key>
 	<string>document</string>
 	<key>name</key>

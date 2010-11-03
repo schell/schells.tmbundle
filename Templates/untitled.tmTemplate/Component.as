@@ -80,9 +80,8 @@ package com.synapsegroup.syndeca.viewer.view.components.interfaces {
 		 *	@since  ${TM_DATE}
 		 */
 		override public function configure():void {
-			// add your special configuration code here
 			super.configure();
-			// retrieve components created through xml here (via _components)
+			// add stuff here
 		}
 	}
 }

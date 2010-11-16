@@ -13,6 +13,7 @@ package com.synapsegroup.syndeca.viewer.view.components.interfaces {
 	import com.synapsegroup.syndeca.viewer.view.components.interfaces.Component;
 	/**
 	 *	XML CONFIG:
+	 *		from Component:
 	 *	@x - sets the x position coord (can be set as a percentage of its (parent as Component)'s width/height)
 	 *	@y - sets the y position coord (can be set as a percentage of its (parent as Component)'s width/height)
 	 *	@left - sets the x position of the left edge of this component (can be set by percentage)
@@ -41,6 +42,9 @@ package com.synapsegroup.syndeca.viewer.view.components.interfaces {
 		public function ${TM_NEW_FILE_BASENAME}(config:XML = null) {
 			super(config);
 		}
+		//--------------------------------------
+		//  COMPONENT FUNCTIONS
+		//--------------------------------------
 		/**
 		 *	Lists this components notification interests, which is the
 		 *  concatenation of all this component's sub-component's interests

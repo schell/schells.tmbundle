@@ -61,6 +61,7 @@ SWF_NAME=`basename $SWF_FULL_PATH`;
 ENTRY_AS="FontCompiler$NEW_FONT_NAME.as"
 CONFIG_XML="FontCompiler$NEW_FONT_NAME.xml"
 
+echo "cd'ing to $SWF_DIR"
 cd $SWF_DIR;
 
 echo "Compiling $RANGE_OUTPUT $SYSTEM_FONT_NAME to $SWF_NAME.&lt;br /&gt;";
@@ -83,7 +84,7 @@ fi
 echo "$COMMAND output:&lt;br /&gt;";
 eval "$COMMAND -load-config $TM_FLEX_PATH/frameworks/flex-config.xml -load-config $SWF_DIR/$CONFIG_XML -o=$SWF_FULL_PATH -file-specs=$SWF_DIR/$ENTRY_AS"
 
-rm $ENTRY_AS $CONFIG_XML FontCompiler$NEW_FONT_NAME.swf.cache;
+rm $ENTRY_AS $CONFIG_XML;
 
 echo "&lt;br /&gt;done!&lt;br /&gt;";</string>
 	<key>input</key>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby
+
+line_number = ENV['TM_LINE_NUMBER'].to_i-1
+class_name = File.basename(ENV['TM_FILENAME'],".as")
+doc = STDIN.read.split("\n")
+
+constructor_regexp = /\bfunction\b\s+(\w+)\s*\(.*\)(\s+)?$/
+function_regexp = /\bfunction\b\s+(\w+)\s*\(.*\).*\b\w+/
+accessor_regexp = /\bfunction\b\s+(get|set)\s+(\w+)\s*\(.*\).*\b\w+/
+
+method_name = ""
+
+while line_number &gt; 0
+	
+    txt = doc[line_number].to_s
+
+    m = function_regexp.match(txt) 
+    method_name = m[1] unless m == nil
+
+    m = accessor_regexp.match(txt)
+    method_name = m[1] + " " + m[2] unless m == nil
+
+    m = constructor_regexp.match(txt)
+    method_name = m[1] unless m == nil
+    
+    break if method_name != ""
+    
+    line_number -= 1
+    
+end
+
+print '//CONSOLE_EXPOSE (watch EXPOSEDAS3 in console)
+import flash.external.ExternalInterface;
+if(ExternalInterface.available) {
+	ExternalInterface.call(\'console.${1:log}\', \'' + class_name + '::' + method_name + '() exposing ${2/.+/ /}$2\');
+	ExternalInterface.call(\'eval\',\'var as3_expose=function(name,variable){console.exposed = console.exposed || {};console.exposed["${3:name}"]=variable;};\');
+	ExternalInterface.call(\'as3_expose\', \'$3\', $2);
+}
+///CONSOLE_LOG'</string>
+	<key>input</key>
+	<string>document</string>
+	<key>name</key>
+	<string>as3 expose object to js console</string>
+	<key>output</key>
+	<string>insertAsSnippet</string>
+	<key>scope</key>
+	<string>source.actionscript.3</string>
+	<key>tabTrigger</key>
+	<string>cex</string>
+	<key>uuid</key>
+	<string>62C02EBF-B1B0-43DA-9E08-45F9797EE0E9</string>
+</dict>
+</plist>

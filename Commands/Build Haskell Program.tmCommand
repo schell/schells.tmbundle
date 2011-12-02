@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string># just to remind you of some useful environment variables
+# see Help / Environment Variables for the full list
+echo "&lt;xmp&gt;"
+echo "$TM_FILEPATH"
+export OUTPUT=`basename "$TM_FILEPATH" .hs`
+echo Compiling "$OUTPUT"…
+ghc --make "$TM_FILEPATH"
+open `dirname "$TM_FILEPATH"`
+</string>
+	<key>input</key>
+	<string>document</string>
+	<key>keyEquivalent</key>
+	<string>@b</string>
+	<key>name</key>
+	<string>Build Haskell Program</string>
+	<key>output</key>
+	<string>showAsHTML</string>
+	<key>scope</key>
+	<string>source.haskell</string>
+	<key>uuid</key>
+	<string>5FB24832-8C73-4621-BDFE-1356605F9881</string>
+</dict>
+</plist>

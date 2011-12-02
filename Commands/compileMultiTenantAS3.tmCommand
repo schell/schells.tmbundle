@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/bin/bash
+
+export COMPILE_SCRIPT="$TM_PROJECT_DIRECTORY/build/compile.sh"
+export LOG_FILE="$TM_PROJECT_DIRECTORY/build/buildLog.md"
+
+echo "&lt;xmp&gt;"
+"$COMPILE_SCRIPT"
+
+#"$COMPILE_SCRIPT" &gt; "$LOG_FILE"
+#cat $LOG_FILE
+</string>
+	<key>input</key>
+	<string>none</string>
+	<key>keyEquivalent</key>
+	<string>@B</string>
+	<key>name</key>
+	<string>Build multitenant as3 project with tests</string>
+	<key>output</key>
+	<string>showAsHTML</string>
+	<key>scope</key>
+	<string>source.actionscript.3</string>
+	<key>uuid</key>
+	<string>8CCAFBC1-1228-4AA3-8639-9978BA349C31</string>
+</dict>
+</plist>

@@ -10,8 +10,11 @@
  *	@author $TM_FULLNAME
  *	@since  `date`
  */
-public function get ${4:name}():$2 {
-	$0
+public function get ${4:name}():$2 {${5:
+	if (!_$4) {
+		$0
+	\}
+	return _$4;}
 }</string>
 	<key>name</key>
 	<string>public get function</string>

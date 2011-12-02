@@ -5,13 +5,14 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string>mate "$TM_BUNDLE_SUPPORT"</string>
+	<string>mate "$TM_BUNDLE_SUPPORT"
+echo "$TM_BUNDLE_SUPPORT"</string>
 	<key>input</key>
 	<string>selection</string>
 	<key>name</key>
 	<string>open bundle support dir</string>
 	<key>output</key>
-	<string>discard</string>
+	<string>openAsNewDocument</string>
 	<key>uuid</key>
 	<string>2AA115C1-B5BD-466A-B195-3A6F2298035C</string>
 </dict>
